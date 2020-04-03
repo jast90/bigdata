@@ -22,5 +22,6 @@
     <module>hdfs-client</module>
     <module>zookeeper-client</module>
     <module>flume</module>
+    <module>kafka</module>
   </modules>
 </project>
