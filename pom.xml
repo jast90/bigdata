@@ -23,5 +23,6 @@
     <module>zookeeper-client</module>
     <module>flume</module>
     <module>kafka</module>
+    <module>hive</module>
   </modules>
 </project>
