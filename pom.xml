@@ -19,10 +19,11 @@
   </build>
 
   <modules>
-    <module>hdfs-client</module>
-    <module>zookeeper-client</module>
+    <module>hdfs</module>
+    <module>mr</module>
+    <module>zookeeper</module>
     <module>flume</module>
     <module>kafka</module>
-    <module>hive</module>
+    <!-- <module>hive</module> -->
   </modules>
 </project>
