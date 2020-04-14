@@ -20,7 +20,7 @@ public class FlowCountMapper extends Mapper<LongWritable,Text,Text,FlowBean>{
     Text k = new Text();
 
     @Override
-    protected void map(LongWritable key, Text value, Mapper<LongWritable, Text, Text, FlowBean>.Context context)
+    protected void map(LongWritable key, Text value, Context context)
             throws IOException, InterruptedException {
         String line = value.toString();
         String[] fields = line.split("\t");
