@@ -17,7 +17,7 @@ public class KVTextDriver {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration configuration = new Configuration();
         configuration.set(KeyValueLineRecordReader.KEY_VALUE_SEPERATOR, " ");
-        Job job = Job.getInstance();
+        Job job = Job.getInstance(configuration);
         job.setJarByClass(KVTextDriver.class);
         job.setMapperClass(KVTextMapper.class);
         job.setReducerClass(KVTextReducer.class);
