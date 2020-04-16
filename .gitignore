@@ -5,3 +5,4 @@
 *.factorypath
 **/target/**
 .DS_Store
+.vscode/**
