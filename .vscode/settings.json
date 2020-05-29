@@ -1,3 +1,10 @@
 {
+    "maven.excludedFolders": [
+
+        "**/.*",
+        "**/node_modules",
+        "**/target",
+        "**/bin"
+    ],
     "java.configuration.updateBuildConfiguration": "interactive"
 }
