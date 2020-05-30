@@ -15,6 +15,8 @@ import org.junit.Test;
  * Unit test for simple App.
  */
 public class AppTest {
+
+    private static final String hadoopHost = "hdfs://hadoop100:9000";
     /**
      * Rigorous Test :-)
      * 
@@ -26,8 +28,8 @@ public class AppTest {
     public void mkdirs() throws IOException, InterruptedException, URISyntaxException
     {
         Configuration configuration = new Configuration();
-        // configuration.set("df.defaultFS", "hdfs://hadoop102:9000");//  不指定用户会失败
-        FileSystem fs = FileSystem.get(new URI("hdfs://hadoop102:9000"),configuration,"jast");
+        // configuration.set("df.defaultFS", hadoopHost);//  不指定用户会失败
+        FileSystem fs = FileSystem.get(new URI(hadoopHost),configuration,"jast");
         Path path = new Path("/", "test");
         assertTrue(fs.mkdirs(path));
         fs.close();
@@ -37,21 +39,20 @@ public class AppTest {
     @Test
     public void copyFromLocalFile() throws IOException, InterruptedException, URISyntaxException {
         Configuration configuration = new Configuration();
-        // configuration.set("df.defaultFS", "hdfs://hadoop102:9000");
-        FileSystem fs = FileSystem.get(new URI("hdfs://hadoop102:9000"),configuration,"jast");
-        fs.copyFromLocalFile(new Path("/Users/zhangzhiwen/Desktop/小学三年级数学人教版/7.三年级数学(人教版)《第7课 口算除法（一）》.mp4")
-        , new Path("/jast"));
+        // configuration.set("df.defaultFS", hadoopHost);
+        FileSystem fs = FileSystem.get(new URI(hadoopHost),configuration,"jast");
+        fs.copyFromLocalFile(new Path("/Users/zhangzhiwen/Desktop/天龙八部.jpeg")
+        , new Path("/test/天龙八部.jpeg"));
     
-        fs.deleteOnExit(new Path("/jast/7.三年级数学(人教版)《第7课 口算除法（一）》.mp4"));
         fs.close();
     }
 
     @Test
     public void deleteOnExit() throws IOException, InterruptedException, URISyntaxException {
         Configuration configuration = new Configuration();
-        // configuration.set("df.defaultFS", "hdfs://hadoop102:9000");
-        FileSystem fs = FileSystem.get(new URI("hdfs://hadoop102:9000"),configuration,"jast");
-        boolean result = fs.deleteOnExit(new Path("/jast/7.三年级数学(人教版)《第7课 口算除法（一）》.mp4"));
+        // configuration.set("df.defaultFS", hadoopHost);
+        FileSystem fs = FileSystem.get(new URI(hadoopHost),configuration,"jast");
+        boolean result = fs.deleteOnExit(new Path("/Users/zhangzhiwen/Desktop/天龙八部.jpeg"));
         fs.close();
 
         assertTrue(result);

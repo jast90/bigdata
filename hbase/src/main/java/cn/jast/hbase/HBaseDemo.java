@@ -7,6 +7,7 @@ import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.CellUtil;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
+import org.apache.hadoop.hbase.HConstants;
 import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Admin;
@@ -18,17 +19,19 @@ import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.Table;
 
-
+/**
+ * HBase服务器IP不对，参考：https://github.com/jast90/awesome-learning/issues/46
+ */
 public class HBaseDemo {
     public static Configuration configuration;
     public static Connection connection;
     public static Admin admin;
 
     public static void main(String[] args) throws IOException {
-        createTable("Score", new String[]{"sname","course"});
+        // createTable("Score", new String[]{"sname","course"});
        //在Score表中插入一条数据，其行键为95001,sname为Mary（因为sname列族下没有子列所以第四个参数为空）
         //等价命令：put 'Score','95001','sname','Mary'
-        //insertRow("Score", "95001", "sname", "", "Mary");
+        insertRow("Score", "95001", "sname", "", "Mary");
         //在Score表中插入一条数据，其行键为95001,course:Math为88（course为列族，Math为course下的子列）
         //等价命令：put 'Score','95001','score:Math','88'
         //insertRow("Score", "95001", "course", "Math", "88");
@@ -62,13 +65,17 @@ public class HBaseDemo {
 
     public static void init() {
         configuration = HBaseConfiguration.create();
-        configuration.set("hbase.rootdir", "hdfs://hadoop100:9000/hbase");
+        configuration.set("hbase.rootdir", "hdfs://192.168.99.100:9000/hbase");
+        configuration.set("hbase.zookeeper.quorum", "192.168.99.100");
+        // configuration.set(HConstants.LOCALHOST_IP, "192.168.99.100");
+        // configuration.set("hbase.master","192.168.99.100");
         try {
             connection = ConnectionFactory.createConnection(configuration);
             admin = connection.getAdmin();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("init finish");
     }
 
     public static void close() {
