@@ -5,6 +5,13 @@ import org.apache.spark.{SparkConf, SparkContext}
 object WordCount{
     /**
      * Program argments 设置args参数：用空格分割，如：/Users/zhangzhiwen/data/spark-data/wc /Users/zhangzhiwen/data/spark-data/wc/out
+     *
+     * 查看结果：
+     * cd /Users/zhangzhiwen/data/spark-data/wc/out/
+     * cat *
+     *
+     * 注意：每次执行都要删除/Users/zhangzhiwen/data/spark-data/wc/out/目录
+     *
      * @param args
      */
     def main(args: Array[String]):Unit={
