@@ -1,6 +1,6 @@
-package cn.jast
+package cn.jast.spark.rdd
 
-import org.apache.spark.{SparkConf,SparkContext}
+import org.apache.spark.{SparkConf, SparkContext}
 
 object WordCount{
     /**
