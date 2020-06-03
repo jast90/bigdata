@@ -52,7 +52,7 @@ public class AppTest {
         Configuration configuration = new Configuration();
         // configuration.set("df.defaultFS", hadoopHost);
         FileSystem fs = FileSystem.get(new URI(hadoopHost),configuration,"jast");
-        boolean result = fs.deleteOnExit(new Path("/Users/zhangzhiwen/Desktop/天龙八部.jpeg"));
+        boolean result = fs.deleteOnExit(new Path("/hbase"));
         fs.close();
 
         assertTrue(result);

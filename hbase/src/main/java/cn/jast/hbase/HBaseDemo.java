@@ -28,16 +28,17 @@ public class HBaseDemo {
     public static Admin admin;
 
     public static void main(String[] args) throws IOException {
+        //创建一个表，表名为Score，列族为sname,course
         // createTable("Score", new String[]{"sname","course"});
        //在Score表中插入一条数据，其行键为95001,sname为Mary（因为sname列族下没有子列所以第四个参数为空）
         //等价命令：put 'Score','95001','sname','Mary'
-        insertRow("Score", "95001", "sname", "", "Mary");
+        // insertRow("Score", "95001", "sname", "", "Mary");
         //在Score表中插入一条数据，其行键为95001,course:Math为88（course为列族，Math为course下的子列）
-        //等价命令：put 'Score','95001','score:Math','88'
-        //insertRow("Score", "95001", "course", "Math", "88");
+        // 等价命令：put 'Score','95001','score:Math','88'
+        // insertRow("Score", "95001", "course", "Math", "88");
         //在Score表中插入一条数据，其行键为95001,course:English为85（course为列族，English为course下的子列）
         //等价命令：put 'Score','95001','score:English','85'
-        //insertRow("Score", "95001", "course", "English", "85");
+        // insertRow("Score", "95001", "course", "English", "85");
  
         //1、删除Score表中指定列数据，其行键为95001,列族为course，列为Math
         //执行这句代码前请deleteRow方法的定义中，将删除指定列数据的代码取消注释注释，将删除制定列族的代码注释
@@ -55,7 +56,7 @@ public class HBaseDemo {
         //deleteRow("Score", "95001", "", "");
  
         //查询Score表中，行键为95001，列族为course，列为Math的值
-        //getData("Score", "95001", "course", "Math");
+        getData("Score", "95001", "course", "Math");
         //查询Score表中，行键为95001，列族为sname的值（因为sname列族下没有子列所以第四个参数为空）
         //getData("Score", "95001", "sname", "");
  
@@ -66,9 +67,7 @@ public class HBaseDemo {
     public static void init() {
         configuration = HBaseConfiguration.create();
         configuration.set("hbase.rootdir", "hdfs://192.168.99.100:9000/hbase");
-        configuration.set("hbase.zookeeper.quorum", "192.168.99.100");
-        // configuration.set(HConstants.LOCALHOST_IP, "192.168.99.100");
-        // configuration.set("hbase.master","192.168.99.100");
+        configuration.set("hbase.zookeeper.quorum", "192.168.99.100,192.168.99.101,192.168.99.102");
         try {
             connection = ConnectionFactory.createConnection(configuration);
             admin = connection.getAdmin();
