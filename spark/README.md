@@ -9,6 +9,8 @@ tar -zxvf scala-2.11.12.tgz -C ~/software/
 vim ~/.bash_profile
 
 epxort PATH=$PATH:/Users/zhangzhiwen/software/scala-2.11.12/bin
+
+source ~/.bash_profile
 ```
 
 ### IDEA 安装scala插件
