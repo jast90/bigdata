@@ -27,12 +27,8 @@ object KafkaSparkStreaming {
       LocationStrategies.PreferBrokers,
       ConsumerStrategies.Subscribe[String,String](topics,kafkaParams)
     )
-    kafkaDStream.foreachRDD{ rdd=>
-      val offsetRanges = rdd.asInstanceOf[HasOffsetRanges].offsetRanges
-      rdd.foreach(r=>{
-        print(r.value())
-      })
-    }
+    kafkaDStream.map(_.value()).flatMap(_.split(" ")).map(x=>(x,1L))
+      .reduceByKey(_+_).print()
     ssc.start()
     ssc.awaitTermination()
   }

@@ -15,3 +15,8 @@ source ~/.bash_profile
 
 ### IDEA 安装scala插件
 到插件市场搜索scala插件并安装
+
+
+## 示例
+### 官方示例
+[spark example](https://github.com/apache/spark/tree/v2.4.5/examples/src/main/scala/org/apache/spark/examples)
