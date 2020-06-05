@@ -9,13 +9,17 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Producer {
+
+    private static final Logger logger = LoggerFactory.getLogger(Producer.class);
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         Properties properties = new Properties();
         // kafka集群broker list
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "hadoop102:9092");
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "hadoop100:9092");
         //
         properties.put(ProducerConfig.ACKS_CONFIG, "all");
         //重试次数
@@ -80,8 +84,8 @@ public class Producer {
     private static void sync(KafkaProducer<String,String> producer) throws InterruptedException, ExecutionException {
         RecordMetadata recordMetadata;
         for (int i = 0; i < 10; i++) {
-            recordMetadata = producer.send(new ProducerRecord<String,String>("first", Integer.toString(i),Integer.toString(i))).get();
-            System.out.println("success->"+recordMetadata.offset());
+            recordMetadata = producer.send(new ProducerRecord<String,String>("source", Integer.toString(i),Integer.toString(i))).get();
+            logger.info("success->{}",recordMetadata.offset());
         }
     }
 
