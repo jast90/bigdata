@@ -8,8 +8,11 @@ object PriceAnalyze {
     val df = spark.read.json("/Users/zhangzhiwen/prices/jsonl")
     df.printSchema()
     df.createOrReplaceTempView("price")
-    val sqlDF = spark.sql("select farmProduceName,averagePrice,maxPrice,minPrice from price where farmProduceCode='AA01002' order by maxPrice desc limit 10")
-    sqlDF.show()
+//    val sqlDF = spark.sql("select farmProduceName,averagePrice,maxPrice,minPrice from price where farmProduceCode='AA01002' order by maxPrice desc limit 10")
+//    sqlDF.show()
+    val marketSQLDF = spark.sql("select marketName,marketCode from price group by marketCode,marketName order by marketCode desc")
+    marketSQLDF.show(1000)
+    marketSQLDF.repartition(1).write.format("json").save("/Users/zhangzhiwen/prices/market/")
     spark.stop()
   }
 }
