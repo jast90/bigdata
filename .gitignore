@@ -1,5 +1,5 @@
 *.settings
-*.project
+.project
 *.classpath
 *.class
 *.factorypath

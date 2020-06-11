@@ -1,0 +1,18 @@
+# first job
+# 打包成zip: zip mutliFlow.zip *
+---
+config:
+  failure.emails: 337235669@qq.com
+
+nodes:
+  - name: jobA
+    type: command
+    config:
+      command: echo "Job A,depends on Job B."
+    dependsOn:
+      - jobB
+  - name: jobB
+    type: command
+    config:
+      command: echo "Job B"
+

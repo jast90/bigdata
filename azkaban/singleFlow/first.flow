@@ -1,0 +1,12 @@
+# first job
+# 打包成zip: zip first.zip *
+---
+config:
+  failure.emails: 337235669@qq.com
+
+nodes:
+  - name: jobA
+    type: command
+    config:
+      command: echo "This is my first azkaban job"
+
