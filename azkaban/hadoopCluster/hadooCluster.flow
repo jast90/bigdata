@@ -1,0 +1,23 @@
+# hadoop 集群
+# 打包成zip: zip hadoopCluster.zip *
+---
+config:
+  failure.emails: 337235669@qq.com
+
+nodes:
+  - name: startZkCluster # 启动zk集群
+    type: command
+    config:
+      command: zkCluster start
+    dependsOn:
+       - stopZkCluster
+
+  - name: statusZkCluster # 查看zk集群状态
+    type: command
+    config:
+      command: zkCluster status
+
+  - name: stopZkCluster # 停止zk集群状态
+    type: command
+    config:
+      command: zkCluster stop
