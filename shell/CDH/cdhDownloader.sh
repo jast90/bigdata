@@ -6,6 +6,8 @@ parcelManifestUrl="http://archive.cloudera.com/cdh5/parcels/latest/manifest.json
 
 sudo mkdir /opt/software
 cd /opt/software
+sudo mkdir cm
+cd cm
 wget -b $parcelSha1Url
 wget -b $parcelManifestUrl
 wget -b $cmUrl
