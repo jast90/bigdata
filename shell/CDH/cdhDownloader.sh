@@ -8,7 +8,7 @@ sudo mkdir /opt/software
 cd /opt/software
 sudo mkdir cm
 cd cm
-wget -b $parcelSha1Url
-wget -b $parcelManifestUrl
-wget -b $cmUrl
-wget -b $parcelUrl
+sudo wget -b $parcelSha1Url
+sudo wget -b $parcelManifestUrl
+sudo wget -b $cmUrl
+sudo wget -b $parcelUrl
