@@ -13,9 +13,11 @@ cd /opt/software
 sudo mkdir mysql
 cd /opt/software/mysql
 
-sudo wget -b $host$common
-sudo wget -b $host$libs
-sudo wget -b $host$client
-sudo wget -b $host$server
+
+#sudo wget -b $host$common
+#sudo wget -b $host$libs
+#sudo wget -b $host$client
+#sudo wget -b $host$server
+sudo wget -b $rpmBundle
 sudo wget -b $perlDbI
 sudo wget -b $connectorJava

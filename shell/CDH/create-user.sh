@@ -1,0 +1,1 @@
+sudo useradd --system --home=/opt/cm-5.16.2/run/cloudera-scm-server/ --no-create-home --shell=/bin/false --comment "Cloudera SCM User" cloudera-scm
