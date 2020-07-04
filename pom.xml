@@ -27,5 +27,6 @@
     <module>hive</module>
     <module>hbase</module>
     <module>spark</module>
+      <module>redis</module>
   </modules>
 </project>

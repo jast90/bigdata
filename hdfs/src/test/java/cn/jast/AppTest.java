@@ -16,7 +16,7 @@ import org.junit.Test;
  */
 public class AppTest {
 
-    private static final String hadoopHost = "hdfs://hadoop100:9000";
+    private static final String hadoopHost = "hdfs://34.92.155.15:9000";
     /**
      * Rigorous Test :-)
      * 
