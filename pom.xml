@@ -28,5 +28,6 @@
     <module>hbase</module>
     <module>spark</module>
       <module>redis</module>
+      <module>elasticsearch</module>
   </modules>
 </project>
