@@ -5,8 +5,7 @@
 *.factorypath
 **/target/**
 .DS_Store
-.vscode/**
+.vscode
 *.iml
 .idea
-
 **/stateful
