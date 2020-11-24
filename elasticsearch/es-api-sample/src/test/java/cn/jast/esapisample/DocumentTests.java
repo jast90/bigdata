@@ -23,7 +23,7 @@ import cn.jast.esapisample.util.Jsons;
 /**
  * https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-supported-apis.html
  */
-public class DocumentTest extends EsApiSampleApplicationTests {
+public class DocumentTests extends EsApiSampleApplicationTests {
     private final String postIndex = "post";
 
     @Test
