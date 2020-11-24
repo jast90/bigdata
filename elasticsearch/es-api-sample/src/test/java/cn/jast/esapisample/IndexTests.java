@@ -15,9 +15,12 @@ import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.common.xcontent.XContentFactory;
 import org.junit.jupiter.api.Test;
 
+/**
+ * https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/_index_apis.html
+ */
 public class IndexTests extends EsApiSampleApplicationTests {
 
-    private final String indexName = "test";
+    public final static String indexName = "test";
 
     @Test
     public void create() throws IOException {
