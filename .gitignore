@@ -9,3 +9,5 @@
 *.iml
 .idea
 **/stateful
+**.vscode/**
+**.metals
