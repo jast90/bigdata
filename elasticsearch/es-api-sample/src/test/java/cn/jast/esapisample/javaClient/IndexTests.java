@@ -1,4 +1,4 @@
-package cn.jast.esapisample;
+package cn.jast.esapisample.javaClient;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 /**
  * https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/_index_apis.html
  */
-public class IndexTests extends EsApiSampleApplicationTests {
+public class IndexTests extends BaseTests {
 
     public final static String indexName = "test";
 

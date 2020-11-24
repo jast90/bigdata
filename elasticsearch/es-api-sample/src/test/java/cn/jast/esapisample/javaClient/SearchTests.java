@@ -1,4 +1,4 @@
-package cn.jast.esapisample;
+package cn.jast.esapisample.javaClient;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 /**
  * https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-search.html
  */
-public class SearchTests extends EsApiSampleApplicationTests {
+public class SearchTests extends BaseTests {
 
     @Test
     public void search() throws IOException {

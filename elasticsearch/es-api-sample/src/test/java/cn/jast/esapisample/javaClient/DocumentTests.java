@@ -1,4 +1,4 @@
-package cn.jast.esapisample;
+package cn.jast.esapisample.javaClient;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -23,7 +23,7 @@ import cn.jast.esapisample.util.Jsons;
 /**
  * https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-supported-apis.html
  */
-public class DocumentTests extends EsApiSampleApplicationTests {
+public class DocumentTests extends BaseTests {
     private final String postIndex = "post";
 
     @Test
