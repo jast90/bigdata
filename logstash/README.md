@@ -1,3 +1,7 @@
+## logstash案例
+
+### 同步mysql中的行政区划到ES：66万条数据，从日志执行时间可以看出花了2分钟左右时间
+
 ```shell
 bin/logstash -f ~/gitlab/bigdata/logstash/logstash-mysql-china-city-to-es.conf
 Using JAVA_HOME defined java: /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
